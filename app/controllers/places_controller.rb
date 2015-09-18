@@ -1,6 +1,7 @@
 class PlacesController < ApplicationController
+
     def index
-    @places = Place.all
+    #@places = Place.all
   end
 
   def new
@@ -47,4 +48,6 @@ class PlacesController < ApplicationController
   def article_params
     params.require(:place).permit(:name, :long, :lat)
   end
+  
 end
+

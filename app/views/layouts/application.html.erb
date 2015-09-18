@@ -5,10 +5,28 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+
 </head>
-<body>
+  <body>
+    <div class="wrapper">
+<!--       <h1>Cosmos.io</h1> -->
+      <ul class="nav-list">
+        <li class="download"><a href="#">Map</a></li>
+        <li class="features"><a href="#">Top </a></li>
+        <li class="method"><a href="#">Method</a></li>
+        <li class="purchase"><a href="#">Contribute</a></li>
+      </ul> 
 
-<%= yield %>
 
-</body>
+    <%= yield %>
+
+
+      <footer>
+        Niall Wallace
+        GHub: <a href="#" class="red">CrocoNiall</a>
+      </footer>
+    </div>
+  </body>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"> </script>
 </html>
