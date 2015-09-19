@@ -5,11 +5,16 @@ class PlacesController < ApplicationController
   end
 
   def new
-    @user = Place.new
+    @title = 'Add a place to your cosmos'
+    @place = Place.new
   end
 
   def create
-    place = Place.new(user_params)
+    coordinate = Geocoder.coordinates(place_params['name'])
+    
+    @lat = coordinate[0]
+    @lng = coordinate[1]
+    place = Place.new(name: place_params['name'], lat: @lat, long: @lng)
     
     if place.save
       flash[:notice] = 'Place created successfully!'
@@ -45,9 +50,9 @@ class PlacesController < ApplicationController
   end
 
   private
-  def article_params
-    params.require(:place).permit(:name, :long, :lat)
+  def place_params
+    params.require(:place).permit(:name)
   end
-  
+
 end
 

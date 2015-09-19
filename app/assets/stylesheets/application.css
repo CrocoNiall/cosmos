@@ -13,6 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+#mainContent {
+  margin: 0 50px 0 50px 0;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+
 @import url(http://fonts.googleapis.com/css?family=Varela+Round);
 body{
   zoom:1;
@@ -146,7 +154,10 @@ h1{
 footer{
   margin-top:5em;
   float:right;
-  font-size:.7em;
+  font-size:.7em;  
+  margin: 0 50px 0 50px 0;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 

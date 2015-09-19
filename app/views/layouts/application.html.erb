@@ -9,18 +9,20 @@
 
 </head>
   <body>
+   
     <div class="wrapper">
-<!--       <h1>Cosmos.io</h1> -->
-      <ul class="nav-list">
-        <li class="download"><a href="#">Map</a></li>
-        <li class="features"><a href="#">Top </a></li>
-        <li class="method"><a href="#">Method</a></li>
-        <li class="purchase"><a href="#">Contribute</a></li>
-      </ul> 
-
-
-    <%= yield %>
-
+      <header>
+        <h1>Cosmos.io</h1>
+        <ul class="nav-list">
+          <li class="download"><a href="#">Map</a></li>
+          <li class="features"><a href="#">Trending </a></li>
+          <li class="method"><a href="#">Browse</a></li>
+          <li class="purchase"><a href="#">Upload</a></li>
+        </ul> 
+      </header>
+       <div id='mainContent'>
+          <%= yield %>
+        </div>
 
       <footer>
         Niall Wallace
