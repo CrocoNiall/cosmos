@@ -1,7 +1,10 @@
-<p>
-  <strong>Name:</strong>
-  <%= @place.name %><br>
-</p>
+
+  <h1><%= @place.name %></h1>
+  <div id='map' class='showMap'> 
+  </div>
+  <p> Location: <%= @place.lat %>, <%= @place.long %></p>
+  <p> Location: <%= @lat_lng %></p>
+
 
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>

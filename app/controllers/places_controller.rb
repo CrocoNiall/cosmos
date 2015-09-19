@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
 
-    def index
-    #@places = Place.all
+  def index
+    @places = Place.all
   end
 
   def new
@@ -11,10 +11,13 @@ class PlacesController < ApplicationController
 
   def create
     coordinate = Geocoder.coordinates(place_params['name'])
-    
+    location = Geocoder.search(place_params['name'])
+    @place_name = location.first.address_components[0].first[1]
     @lat = coordinate[0]
     @lng = coordinate[1]
-    place = Place.new(name: place_params['name'], lat: @lat, long: @lng)
+
+    # @lat_lng = coordinate.reduce
+    place = Place.new(name: @place_name, lat: @lat, long: @lng)
     
     if place.save
       flash[:notice] = 'Place created successfully!'
@@ -27,6 +30,9 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+
+    @lat_lng = "lat: #{@place.lat}, lng: #{@place.long}"
+    gon.location = [@place.lat, @place.long]
   end
 
   def edit
