@@ -6,6 +6,11 @@
   <div id='showMap' > 
   </div>
   <div id='images'>
+    <% @photos.each do |photo| %>
+    <div class='imgThumb'>
+    <%= image_tag(photo.url) %>
+    </div>
+    <% end %>
   </div>
   <p> Location: <%= @place.lat %>, <%= @place.long %></p>
   

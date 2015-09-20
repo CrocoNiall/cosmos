@@ -18,7 +18,6 @@ class PlacesController < ApplicationController
     @lat = coordinate[0]
     @lng = coordinate[1]
 
-    
     place = Place.new(name: @place_name, lat: @lat, long: @lng)
     
     if place.save
@@ -31,11 +30,13 @@ class PlacesController < ApplicationController
   end
 
   def show
-    gon.clear
     @place = Place.find(params[:id])
     @searchObj = Geocoder.search(@place.name)
     @country = @searchObj.first.address_components.last.first[1]
     gon.location = [@place.lat, @place.long]
+
+    @photos = @place.photos
+
 
 
   end

@@ -24,6 +24,6 @@ def show
 end
 
 def photo_params
-  params.require(:photo).permit(:url)
+  params.require(:photo).permit(:url, :place_id)
 end
 end

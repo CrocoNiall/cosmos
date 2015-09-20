@@ -7,9 +7,8 @@
 
 #images{
   margin-left: 10px;
-  background: gray;
   display: inline-block;
-  height: 400px;
+  vertical-align: top;
   width: 800px;
 }
 
@@ -17,6 +16,7 @@
   display: block;
   margin: 0 auto;
   padding: 0 20px 0 20px;
+
 }
 
 
@@ -29,4 +29,15 @@
   padding: 5px;
   background: black;
   border: solid black 1px;
+}
+
+.imgThumb {
+  display: inline-block;
+  margin: 3px;
+}
+
+img {
+  display: inline-block;
+  height: 140px;
+  width: 140px;
 }

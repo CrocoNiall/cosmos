@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   get '/' => 'places#index'
-  resources :places
+  resources :places 
   resources :photos
+  
 
 
 
