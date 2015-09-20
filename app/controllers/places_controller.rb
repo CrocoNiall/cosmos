@@ -26,7 +26,7 @@ class PlacesController < ApplicationController
       redirect_to place
     else
       flash.now[:error] = "Error: #{place.errors.full_messages}"
-      render :place
+      render :new_place
     end
   end
 
