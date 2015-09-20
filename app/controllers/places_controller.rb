@@ -2,11 +2,13 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.all
+
   end
 
   def new
     @title = 'Add a place to your cosmos'
     @place = Place.new
+
   end
 
   def create
@@ -16,7 +18,7 @@ class PlacesController < ApplicationController
     @lat = coordinate[0]
     @lng = coordinate[1]
 
-    # @lat_lng = coordinate.reduce
+    
     place = Place.new(name: @place_name, lat: @lat, long: @lng)
     
     if place.save
@@ -29,10 +31,13 @@ class PlacesController < ApplicationController
   end
 
   def show
+    gon.clear
     @place = Place.find(params[:id])
-
-    @lat_lng = "lat: #{@place.lat}, lng: #{@place.long}"
+    @searchObj = Geocoder.search(@place.name)
+    @country = @searchObj.first.address_components.last.first[1]
     gon.location = [@place.lat, @place.long]
+
+
   end
 
   def edit

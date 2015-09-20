@@ -1,10 +1,16 @@
-
+  <%= Gon::Base.render_data %>
+<div id='contentContainer'>
   <h1><%= @place.name %></h1>
-  <div id='map' class='showMap'> 
+  <h2><%= @country %></h2>
+
+  <div id='showMap' > 
+  </div>
+  <div id='images'>
   </div>
   <p> Location: <%= @place.lat %>, <%= @place.long %></p>
-  <p> Location: <%= @lat_lng %></p>
+  
+  <%= link_to 'Edit', edit_place_path(@place) %> |
+  <%= link_to 'Back', places_path %>
+</div>  
 
-
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+<script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"> </script>

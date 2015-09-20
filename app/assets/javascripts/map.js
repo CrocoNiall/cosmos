@@ -251,20 +251,25 @@ var styleArray = [
 
 
 var map;
+
+
+
 function getLatLng(){
-    console.log(gon.location)
+// gets .gon var and convertes it into js object
     var location = gon.location
-    console.log(location[0])
     var mapLocation = {lat: location[0], lng: location[1]}
     console.log(mapLocation)
     return mapLocation
+
 }
 
+
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    // center: {lat: 51.5, lng: 0.11},
-    center: getLatLng(),
-    zoom: 3,
+  var local = getLatLng()  
+  map = new google.maps.Map(document.getElementById('showMap'), {
+    center: local,
+    zoom: 10,
     styles: styleArray
   });
 }
+

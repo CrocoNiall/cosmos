@@ -1,5 +1,4 @@
 console.log('hello Niall')
-console.log(gon.latLng)
 
 
 var $navList = $('.nav-list');
