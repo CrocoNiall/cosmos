@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
-  get '/' => 'places#index'
-  resources :places 
-  resources :photos
+  root 'places#index'
+  resources :places do
+    resources :photos 
+  end
+  resources :photos   
+  resources :votes
   
 
 

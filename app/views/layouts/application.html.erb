@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Cosmos</title>
-    <%= Gon::Base.render_data %>
+  <%= Gon::Base.render_data %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -16,21 +16,21 @@
       <header>
         <h1>Cosmos.io</h1>
         <ul class="nav-list">
-          <li class="download"><a href="#">Map</a></li>
+          <li class="download"><a href="/places">Map</a></li>
           <li class="features"><a href="#">Trending </a></li>
           <li class="method"><a href="#">Browse</a></li>
-          <li class="purchase"><a href="#">Upload</a></li>
-        </ul> 
+          <li class="purchase"><a href="/photos/new">Upload</a></li>
+          </ul> 
       </header>
        <div id='mainContent'>
           <%= yield %>
         </div>
-
+    </div>
       <footer>
         Niall Wallace
         GHub: <a href="#" class="red">CrocoNiall</a>
       </footer>
-    </div>
+    
   </body>
 
 </html>

@@ -1,11 +1,13 @@
 
 <h3>The Cosomo</h3>
-<% @places.each do |place| %>
-<div id='places'>
-  <h3><%= link_to place.name, "/places/#{place.id}"  %></h3>
-</div>
+<% @places.each do |current_place| %>
+  <% image = current_place.high_img(current_place) %>
+  <div id='places'>
+  <h3><%= link_to current_place.name, "/places/#{current_place.id}"  %></h3>
+
+  <%= image_tag(image.url_url, class: 'indexImage') %> 
 
 
-
+  </div>
 
 <% end %>

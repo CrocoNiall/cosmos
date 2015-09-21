@@ -268,8 +268,14 @@ function initMap() {
   var local = getLatLng()  
   map = new google.maps.Map(document.getElementById('showMap'), {
     center: local,
-    zoom: 10,
+    zoom: 8,
     styles: styleArray
+  });
+
+    var marker = new google.maps.Marker({
+    position: local,
+    map: map,
+    title: 'Location!'
   });
 }
 

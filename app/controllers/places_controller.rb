@@ -37,8 +37,6 @@ class PlacesController < ApplicationController
 
     @photos = @place.photos
 
-
-
   end
 
   def edit
@@ -59,6 +57,12 @@ class PlacesController < ApplicationController
     place = Place.find(params[:id]).destroy
 
     redirect_to places
+  end
+
+  def goodvote photo  
+    vote =  Vote.new(photo_id: photo.id, vote: true)
+    vote.save
+
   end
 
   private

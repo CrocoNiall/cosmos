@@ -8,14 +8,17 @@
   <div id='images'>
     <% @photos.each do |photo| %>
     <div class='imgThumb'>
-    <%= image_tag(photo.url) %>
+    <%= image_tag(photo.url) %><br>
+    <%= link_to 'Like', votes_path(:photo_id => photo.id, :vote => true), :method => :post %>
+
     </div>
     <% end %>
   </div>
   <p> Location: <%= @place.lat %>, <%= @place.long %></p>
   
-  <%= link_to 'Edit', edit_place_path(@place) %> |
+  <%= link_to 'Add Photo', new_place_photo_path(@place.id) %>
   <%= link_to 'Back', places_path %>
+
 </div>  
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?callback=initMap"> </script>
