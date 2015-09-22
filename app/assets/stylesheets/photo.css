@@ -1,0 +1,28 @@
+
+#show_photo {
+  display: block;
+  margin: 0 auto;
+  width: 500px;
+  margin-top: 30px;
+
+}
+#photo_container {
+  text-align: center;
+  margin-bottom: 20px
+}
+#photo_details {
+  color: black;
+  padding: 7px;
+  background: white;
+  border: solid black 2px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+#photo_details a{
+  color: black;
+}
+
+i {
+  display: block;
+}

@@ -1,6 +1,14 @@
- <p> 
-  <%= image_tag(@photo.url) %>
-</p>
+ <div id='show_photo'>
+  <div id='photo_details'>
+    <i>Added: <%= time_ago_in_words(@photo.created_at) %> </i>
+    <i>Location: <%= link_to @place.name, place_path(@place) %> </i>
+    <i><%= @votes %> Likes </i>
+  </div>
+  <div id='photo_container'>
+    <%= image_tag(@photo.url) %>
+  </div>
+
+</div>
 
 
 

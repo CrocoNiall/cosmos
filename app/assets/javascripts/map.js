@@ -1,4 +1,4 @@
-
+console.log('Hello Niall');
 
 var styleArray = [
     {
@@ -252,7 +252,7 @@ var styleArray = [
 
 var map;
 
-
+console.log(gon.location);
 
 function getLatLng(){
 // gets .gon var and convertes it into js object
@@ -260,17 +260,17 @@ function getLatLng(){
     var mapLocation = {lat: location[0], lng: location[1]}
     console.log(mapLocation)
     return mapLocation
-
 }
 
 
 function initMap() {
+  console.log('initing')
   var local = getLatLng()  
   map = new google.maps.Map(document.getElementById('showMap'), {
     center: local,
     zoom: 8,
     styles: styleArray
-  });
+  }); 
 
     var marker = new google.maps.Marker({
     position: local,
@@ -278,4 +278,48 @@ function initMap() {
     title: 'Location!'
   });
 }
+
+  
+var LocationData = gon.location_data
+ 
+function mainMapInit()
+{
+    map = 
+        new google.maps.Map(document.getElementById('mainMap'), {
+          styles: styleArray
+        });
+    var bounds = new google.maps.LatLngBounds();
+    var infowindow = new google.maps.InfoWindow();
+     
+    for (var i in LocationData)
+    {
+        // var contentString = '<IMG BORDER="0" ALIGN="Left" SRC="http://cosmos.storage.s3.amazonaws.com/uploads/photo/url/1/madrid.jpeg">'
+        
+        var p = LocationData[i];
+        var latlng = new google.maps.LatLng(p[0], p[1]);
+        bounds.extend(latlng);
+         
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title: p[2],
+            content: '<IMG BORDER="0" height="70" width="70" SRC="' + p[3] +'">' + '<br>' + '<a href=/places/' + p[4] +'>' + p[2] +'</a>'
+        });
+     
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(this.content);
+            console.log(this.content)
+            infowindow.open(map, this);
+        });
+    }
+     
+    map.fitBounds(bounds);
+}
+ 
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+
 

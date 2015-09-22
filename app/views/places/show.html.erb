@@ -9,8 +9,8 @@
     <% @photos.each do |photo| %>
     <div class='imgThumb'>
 
-    <%= image_tag(photo.url) %><br>
-    <%= time_ago_in_words(photo.created_at) %>  | <%= link_to '&times;', votes_path(:photo_id => photo.id, :vote => true), :method => :post %>
+    <%= link_to image_tag(photo.url), photo_path(photo) %><br>
+    <%= link_to 'Like', votes_path(:photo_id => photo.id, :vote => true), :method => :post %>
 
     </div>
     <% end %>

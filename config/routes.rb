@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'places#index'
+  get '/place/map' => 'places#map'
   resources :places do
     resources :photos 
   end

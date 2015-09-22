@@ -59,11 +59,24 @@ class PlacesController < ApplicationController
     redirect_to places
   end
 
-  def goodvote photo  
-    vote =  Vote.new(photo_id: photo.id, vote: true)
-    vote.save
+  def map
+    @places = Place.all
+    # @searchObj = Geocoder.search(@place.name)
+    # @country = @searchObj.first.address_components.last.first[1]
+    # gon.location = [@place.lat, @place.long]
+
+    locations = []
+    @places.each do |place| 
+      top_pic = place.high_img(place)
+      place_details = [place.lat, place.long, place.name, top_pic.url_url, place.id]
+      locations << place_details
+
+    end
+    gon.location_data = locations
+   
 
   end
+
 
   private
   def place_params

@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
         @place = Place.find(params[:place_id])
       else
         @place = Place.new
-         
+
         
       end
           
@@ -31,9 +31,11 @@ class PhotosController < ApplicationController
 
   def show 
     @photo = Photo.find(params[:id])
+    @place = Place.find(@photo.place_id)
+    @votes = Vote.where(photo_id: @photo.id).count
+
 
   end
-
 
 
   def photo_params
