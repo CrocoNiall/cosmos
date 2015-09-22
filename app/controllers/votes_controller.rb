@@ -6,8 +6,9 @@ class VotesController < ApplicationController
   end
 
   def create
+
     vote = Vote.create(photo_id: params[:photo_id], vote: params[:vote])
-    redirect_to "/places/#{params[:photo_id]}"
+    redirect_to "/places/#{Photo.find(params[:photo_id]).place_id}"
   end
 
   private
