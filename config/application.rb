@@ -7,8 +7,14 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 
+    
 module Cosmos
+config.exceptions_app = self.routes
+
   class Application < Rails::Application
+    if @_status?
+        redirect_tp '/404'
+    end
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

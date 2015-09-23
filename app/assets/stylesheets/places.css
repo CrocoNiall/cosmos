@@ -30,6 +30,20 @@ padding: 0px;
   margin-left: 10px;
 }
 
+.new_place_show {
+  display: inline-block;
+  width: 275px;
+  background: black;
+  margin: 5px;
+  padding: 5px;
+}
+.new_place_show a {
+  color: white;
+}
+
+.place_form {
+  margin-top: 20px;
+}
 
 
 #places {
@@ -37,7 +51,7 @@ padding: 0px;
   width: 210px;
   height: 240px;
   display: inline-block;
-  margin: 5px 20px 5px 20px;
+  margin: 5px 10px 5px 10px;
   padding: 10px;
   background: black;
   border: solid black 1px;

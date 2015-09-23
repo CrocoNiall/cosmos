@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   root 'places#index'
   get '/place/map' => 'places#map'
+  get "/404", :to => "errors#not_found"
+  get "/200", :to => "errors#unacceptable"
+  get "/500", :to => "errors#internal_error"
+
   resources :places do
     resources :photos 
   end

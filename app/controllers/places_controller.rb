@@ -6,8 +6,9 @@ class PlacesController < ApplicationController
   end
 
   def new
-    @title = 'Add a place to your cosmos'
+    @title = 'Add a place to The Cosmos'
     @place = Place.new
+    @places = Place.all
 
   end
 

@@ -286,7 +286,8 @@ function mainMapInit()
 {
     map = 
         new google.maps.Map(document.getElementById('mainMap'), {
-          styles: styleArray
+          styles: styleArray,
+          minZoom: 2
         });
     var bounds = new google.maps.LatLngBounds();
     var infowindow = new google.maps.InfoWindow();

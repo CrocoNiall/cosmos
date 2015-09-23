@@ -1,3 +1,4 @@
+<div id='place_form'>
 <%= form_for(@place) do |f| %>
   <% if @place.errors.any? %>
     <div id="error_explanation">
@@ -12,7 +13,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
@@ -22,3 +23,5 @@
   </div>
  
 <% end %>
+
+</div>
